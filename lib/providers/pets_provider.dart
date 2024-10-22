@@ -1,3 +1,5 @@
+import 'package:adopt_app/models/user.dart';
+import 'package:adopt_app/services/auth_services.dart';
 import 'package:adopt_app/services/pets.dart';
 import 'package:adopt_app/models/pet.dart';
 import 'package:flutter/material.dart';

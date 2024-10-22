@@ -19,7 +19,7 @@ class AddPetFormState extends State<AddPetForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
-  var _image;
+  XFile? _image;
   String name = "";
   String gender = "";
   int age = 0;
@@ -87,7 +87,7 @@ class AddPetFormState extends State<AddPetForm> {
                   final XFile? image =
                       await _picker.pickImage(source: ImageSource.gallery);
                   setState(() {
-                    _image = File(image!.path);
+                    _image = XFile(image!.path);
                   });
                 },
                 child: Container(
@@ -96,8 +96,8 @@ class AddPetFormState extends State<AddPetForm> {
                   margin: const EdgeInsets.only(top: 20),
                   decoration: BoxDecoration(color: Colors.blue[200]),
                   child: _image != null
-                      ? Image.file(
-                          _image,
+                      ? Image.network(
+                          _image!.path,
                           width: 200.0,
                           height: 200.0,
                           fit: BoxFit.fitHeight,
@@ -129,7 +129,7 @@ class AddPetFormState extends State<AddPetForm> {
                       Pet(
                           name: name,
                           gender: gender,
-                          image: _image.path,
+                          image: _image!.path,
                           age: age));
                   GoRouter.of(context).pop();
                 }
