@@ -1,4 +1,5 @@
 import 'package:adopt_app/models/user.dart';
+import 'package:adopt_app/services/client.dart';
 import 'package:dio/dio.dart';
 
 class AuthServices {
@@ -11,6 +12,17 @@ class AuthServices {
     try {
       Response response =
           await _dio.post(_baseUrl + '/signup', data: user.toJson());
+      token = response.data["token"];
+    } on DioError catch (error) {
+      print(error);
+    }
+    return token;
+  }
+
+  Future<String> signin({required User user}) async {
+    late String token;
+    try {
+      Response response = await Client.dio.post('/signin', data: user.toJson());
       token = response.data["token"];
     } on DioError catch (error) {
       print(error);

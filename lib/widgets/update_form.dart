@@ -1,4 +1,4 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:adopt_app/models/pet.dart';
 import 'package:adopt_app/providers/pets_provider.dart';
@@ -16,10 +16,7 @@ class UpdatePetForm extends StatefulWidget {
   }
 }
 
-// Create a corresponding State class. This class holds data related to the form.
 class UpdateFormState extends State<UpdatePetForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
   XFile? _image;
   String name = "";

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:adopt_app/models/pet.dart';
-import 'package:adopt_app/models/user.dart';
+// import 'package:adopt_app/models/user.dart';
 import "package:dio/dio.dart";
 
 class DioClient {

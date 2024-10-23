@@ -1,8 +1,9 @@
 import 'package:adopt_app/models/user.dart';
 import 'package:adopt_app/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:adopt_app/services/pets.dart';
+// import 'package:adopt_app/services/pets.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class SignupPage extends StatelessWidget {
                     user: User(
                         username: usernameController.text,
                         password: passwordController.text));
+                context.pop();
               },
               child: const Text("Sign Up"),
             )
